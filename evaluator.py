@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 Evaluator para Fine-Tuning vs RAG
-Apex Eval - 2025
+Odysea Eval - 2025
 
 Ejecuta evaluación comparativa de diferentes arquitecturas sobre un dataset
 de consultas empresariales.
@@ -236,7 +236,7 @@ class Evaluator:
 
 def main():
     parser = argparse.ArgumentParser(
-        description='Evaluador Fine-Tuning vs RAG - Apex Eval'
+        description='Evaluador Fine-Tuning vs RAG - Odysea Eval'
     )
     parser.add_argument(
         '--config',
