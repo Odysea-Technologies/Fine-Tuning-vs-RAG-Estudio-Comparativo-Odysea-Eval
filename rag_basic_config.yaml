@@ -1,0 +1,132 @@
+# Configuración RAG-Basic
+# Esta es la configuración óptima identificada por Apex Eval para MYPES
+# del sur del Perú con 500-2,000 consultas/mes
+
+name: "RAG-Basic"
+description: "Configuración óptima costo-beneficio para MYPES peruanas"
+
+# Modelo de embeddings
+embeddings:
+  provider: "openai"
+  model: "text-embedding-3-small"
+  dimensions: 1536
+  
+  # Costos (abril 2025)
+  cost_per_1m_tokens: 0.02  # USD
+  
+# Base de datos vectorial
+vector_db:
+  provider: "chromadb"
+  collection_name: "empresa_docs"
+  
+  # ChromaDB config
+  persist_directory: "./chroma_db"
+  
+  # Metadata para filtrado
+  metadata_fields:
+    - "source"
+    - "document_type"
+    - "date"
+    - "category"
+
+# Retrieval
+retrieval:
+  top_k: 3
+  similarity_threshold: 0.75
+  
+  # Estrategia de búsqueda
+  search_type: "similarity"  # "similarity" | "mmr" | "similarity_score_threshold"
+  
+  # MMR (Maximal Marginal Relevance) - no usado en RAG-Basic
+  # mmr_diversity_score: 0.5
+  
+# Modelo de generación
+llm:
+  provider: "openai"
+  model: "gpt-3.5-turbo-0125"
+  temperature: 0.0
+  max_tokens: 1000
+  
+  # Streaming para mejor UX
+  streaming: true
+  
+  # Costos (abril 2025)
+  cost_input_per_1m_tokens: 0.50  # USD
+  cost_output_per_1m_tokens: 1.50  # USD
+
+# Prompt template
+prompt:
+  system: |
+    Eres un asistente experto que responde preguntas basándote ÚNICAMENTE en la documentación provista.
+    
+    REGLAS CRÍTICAS:
+    1. Si la información no está en los documentos, responde "No tengo información suficiente sobre esto en la documentación disponible"
+    2. Cita siempre la fuente específica de donde obtuviste la información
+    3. No inventes, no asumas, no extrapoles más allá de lo que dicen los documentos
+    4. Si hay información contradictoria entre documentos, menciona ambas versiones
+    
+  user: |
+    Documentos relevantes:
+    {context}
+    
+    Pregunta del usuario: {question}
+    
+    Responde basándote SOLO en los documentos anteriores. Si la respuesta no está ahí, dilo claramente.
+
+# Configuración de caché
+cache:
+  enabled: true
+  ttl_seconds: 3600  # 1 hora
+  
+  # Cache de embeddings de consultas frecuentes
+  cache_embeddings: true
+  embedding_cache_size: 1000
+
+# Logging y monitoreo
+logging:
+  level: "INFO"
+  log_queries: true
+  log_retrievals: true
+  log_costs: true
+  
+  output_file: "logs/rag_basic.log"
+
+# Evaluación
+evaluation:
+  # Métricas a trackear
+  track_latency: true
+  track_tokens: true
+  track_costs: true
+  
+  # Sampling para evaluación humana
+  human_eval_sample_rate: 0.05  # 5% de queries
+
+# Costos proyectados (referencia)
+# Estos son los costos medidos en el estudio Apex Eval
+costs_reference:
+  setup_one_time: 87  # Soles
+  cost_per_query: 0.048  # Soles
+  monthly_5k_queries: 240  # Soles
+  
+  # Breakdown típico por query
+  embedding_cost: 0.003  # Soles
+  retrieval_cost: 0.002  # Soles (ChromaDB local = casi 0)
+  llm_cost: 0.043  # Soles
+
+# Performance esperada (del estudio)
+expected_performance:
+  f1_score: 0.84
+  f1_std: 0.07
+  
+  latency_p50_ms: 1420
+  latency_p95_ms: 2180
+  
+  hallucination_rate: 0.031  # 3.1%
+  coverage: 0.887  # 88.7% de queries respondidas
+
+# Limitaciones conocidas
+limitations:
+  - "Corpus máximo recomendado: 5,000 páginas"
+  - "Performance degrada si documentos >50 páginas sin chunking apropiado"
+  - "No funciona bien con consultas que requieren razonamiento multi-hop complejo"
+  - "Requiere documentos en texto plano (PDFs escaneados necesitan OCR previo)"
