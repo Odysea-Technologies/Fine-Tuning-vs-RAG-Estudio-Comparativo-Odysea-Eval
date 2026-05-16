@@ -1,5 +1,5 @@
 # Configuración RAG-Basic
-# Esta es la configuración óptima identificada por Apex Eval para MYPES
+# Esta es la configuración óptima identificada por Odysea Eval para MYPES
 # del sur del Perú con 500-2,000 consultas/mes
 
 name: "RAG-Basic"
@@ -102,7 +102,7 @@ evaluation:
   human_eval_sample_rate: 0.05  # 5% de queries
 
 # Costos proyectados (referencia)
-# Estos son los costos medidos en el estudio Apex Eval
+# Estos son los costos medidos en el estudio Odysea Eval
 costs_reference:
   setup_one_time: 87  # Soles
   cost_per_query: 0.048  # Soles
