@@ -4,7 +4,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Python 3.11+](https://img.shields.io/badge/python-3.11+-blue.svg)](https://www.python.org/downloads/)
 
-Repositorio oficial del estudio **"Fine-Tuning vs RAG: Estudio comparativo de precisión, costo y latencia en 247 pruebas empresariales"** realizado por Apex Eval entre enero-abril 2025.
+Repositorio oficial del estudio **"Fine-Tuning vs RAG: Estudio comparativo de precisión, costo y latencia en 247 pruebas empresariales"** realizado por Odysea Eval entre enero-abril 2025.
 
 ## 📊 Resumen del Estudio
 
@@ -82,7 +82,7 @@ ft-vs-rag-benchmark/
 
 ```bash
 # Clonar repositorio
-git clone https://github.com/apex-eval/ft-vs-rag-benchmark.git
+git clone https://github.com/Odysea-eval/ft-vs-rag-benchmark.git
 cd ft-vs-rag-benchmark
 
 # Crear entorno virtual
@@ -252,16 +252,16 @@ Si usas este código o dataset en tu investigación, por favor cita:
 ```bibtex
 @techreport{ramos2025ftvsrag,
   title={Fine-Tuning vs RAG: Estudio comparativo de precisión, costo y latencia en 247 pruebas empresariales},
-  author={Ramos, Diego and Equipo Apex Eval},
-  institution={Apex Eval, Apex Technologies},
+  author={Ramos, Diego and Equipo Odysea Eval},
+  institution={Odysea Eval, Odysea Technologies},
   year={2025},
   month={April},
   address={Arequipa, Perú},
-  url={https://github.com/apex-eval/ft-vs-rag-benchmark}
+  url={https://github.com/Odysea-eval/ft-vs-rag-benchmark}
 }
 ```
 
-**Paper completo:** [https://apextechnologies.pe/research/ft-vs-rag-2025](https://apextechnologies.pe/research/ft-vs-rag-2025)
+**Paper completo:** [https://odysea.tech/research/ft-vs-rag-2025](https://odysea.tech/research/ft-vs-rag-2025)
 
 ## 🤝 Contribuciones
 
@@ -283,13 +283,13 @@ Este proyecto está licenciado bajo MIT License - ver [LICENSE](LICENSE) para de
 
 ## 📧 Contacto
 
-**Apex Eval - Centro de Investigación Aplicada en IA**
+**Odysea Eval - Centro de Investigación Aplicada en IA**
 
-- 🌐 Web: [https://apextechnologies.pe/eval](https://apextechnologies.pe/eval)
-- 📧 Email: research@apextechnologies.pe
+- 🌐 Web: [https://Odyseatechnologies.pe/eval](https://odysea.tech/eval)
+- 📧 Email: eval@odysea.tech
 - 📍 Ubicación: Arequipa, Perú
 
-**Lead Researcher:** Diego Ramos (dramos@apextechnologies.pe)
+**Lead Researcher:** Mauricio Lezama (mauriciolezama@odysea.tech)
 
 ## 🙏 Agradecimientos
 
@@ -299,7 +299,7 @@ Este proyecto está licenciado bajo MIT License - ver [LICENSE](LICENSE) para de
 
 ---
 
-**Última actualización:** 21 de abril, 2025  
+**Última actualización:** 21 de abril, 2026  
 **Versión del repositorio:** v1.0.0  
 **DOI:** 10.5281/zenodo.XXXXXX (pendiente)
 
@@ -309,6 +309,6 @@ Este proyecto está licenciado bajo MIT License - ver [LICENSE](LICENSE) para de
 
 **Hecho con ❤️ en Arequipa, Perú**
 
-![Apex Eval](https://odysea.tech)
+![Odysea Eval](https://odysea.tech)
 
 </div>
