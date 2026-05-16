@@ -1,6 +1,6 @@
 """
 Módulo de cálculo de métricas para evaluación
-Apex Eval - 2025
+Odysea Eval - 2025
 """
 
 import re
